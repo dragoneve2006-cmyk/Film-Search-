@@ -44,8 +44,8 @@ export const useAuth = create<AuthState>((set) => {
                 set({user, isAuthenticated: true, isAdmin: user.role === 'admin'});
 
                 // Carica preferiti e watchlist al login
-                useFavorites.getState().loadFavorites();
-                useWatchlist.getState().loadWatchlist();
+                useFavorites.getState().loadUserFavorites(user.id);
+                useWatchlist.getState().loadUserWatchlist(user.id);
             }catch (error){
                 throw error;
             }
@@ -75,8 +75,8 @@ export const useAuth = create<AuthState>((set) => {
                 set({user, isAuthenticated: true, isAdmin: false});
 
                 // Inizializzo preferiti e watchlist vuoti
-                useFavorites.getState().initializeFavorites();
-                useWatchlist.getState().initializeWatchlist();
+                useFavorites.getState().loadUserFavorites(user.id);
+                useWatchlist.getState().loadUserWatchlist(user.id);
             }catch (error){
                 throw error;
             }
