@@ -3,7 +3,7 @@
 
 import {Link} from 'react-router-dom';
 import type {Movie} from '../types/movie';
-import type  {getImageUrl} from '../api/movies';
+import {getImageUrl} from '../api/movies';
 import {useFavorites} from '../hooks/useFavorites';
 import {useWatchlist} from '../hooks/useWatchlist';
 
@@ -26,8 +26,8 @@ export const MovieCard = ({movie, showWatchlistActions = false, currentList}: Mo
     } = useWatchlist();
 
     const isFavorite = favorites.some((fav) => fav.id === movie.id);
-    const isInToWatch = toWatch.some((m) => m.id === movie.id);
-    const isInWatched = watched.some((m) => m.id === movie.id);
+    const isInToWatch = toWatch.some((m: { id: number; }) => m.id === movie.id);
+    const isInWatched = watched.some((m: { id: number; }) => m.id === movie.id);
 
     const handleFavoriteClick = (e: React.MouseEvent) => {
         e.preventDefault();

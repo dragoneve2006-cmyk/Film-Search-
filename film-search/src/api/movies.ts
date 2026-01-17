@@ -10,7 +10,7 @@ const api = axios.create({
     baseURL: BASE_URL,
     params: {
         api_key: API_KEY,
-        language: 'i-IT',
+        language: 'it-IT',
     },
 });
 
@@ -38,7 +38,7 @@ export const moviesApi = {
     },
 
     //FILM IN TENDENZA
-    getTrendigMovies: async (page = 1) : Promise<MovieResponse> => {
+    getTrendingMovies: async (page = 1) : Promise<MovieResponse> => {
         const response = await api.get('/trending/movie/week', {
             params: {
                 page,
@@ -74,14 +74,6 @@ export const moviesApi = {
             },
         });
         return response.data;
-    },
-
-    //URL IMMAGINE
-    getImageUrl: (path: string | null, size: 'w200' | 'w500' | 'original' = 'w500'): string => {
-        if (!path) {
-            return 'https://via.placeholder.com/500x750?text=No+Image';
-        }
-        return `https://image.tmdb.org/t/p/${size}${path}`;
     },
 
     /**
@@ -196,8 +188,11 @@ getUserRating: (movieId: number, userId: string): number | null => {
 
 };
 
-
-
+//URL IMMAGINE
+export const getImageUrl = (path: string | null, size: 'w200' | 'w500' | 'original' = 'w500'): string => {
+    if (!path) return 'https://via.placeholder.com/500x750?text=No+Image';
+    return `https://image.tmdb.org/t/p/${size}${path}`;
+};
 
 
 
