@@ -38,7 +38,7 @@ export const Login = () => {
                 <div className="error-message">
                     ❌ {error}
                 </div>
-            )};
+            )}
 
             <form onSubmit={handleSubmit}>
                 <div className="form-group">

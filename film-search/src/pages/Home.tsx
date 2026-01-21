@@ -34,7 +34,7 @@ export const Home = () => {
                             Accedi
                             </Link>
                         </>
-                    )};
+                    )}
                 </div>
             </div>
 
