@@ -148,7 +148,7 @@ export const AppRouter = () => {
                 </main>
 
                 <footer className="footer">
-                    <p>© 2026 Film Search. All rights reserved.</p>
+                    <p>© 2026 Film Search. Tutti i diritti sono riservati.</p>
                 </footer>
             </div>
         </BrowserRouter>
