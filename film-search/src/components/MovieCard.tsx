@@ -135,9 +135,9 @@ export const MovieCard = ({movie, showWatchlistActions = false, currentList}: Mo
                                 ✅
                                 </button>
                             </>
-                        ) : null};
+                        ) : null}
                     </div>
-                )};
+                )}
             
             <div className="movie-card-content">
                 <h3 className="movite-title">{movie.title}</h3>
@@ -188,7 +188,7 @@ export const MovieCard = ({movie, showWatchlistActions = false, currentList}: Mo
                         </button>
                     )};
                 </div>
-            )};
+            )}
         </div>
         </Link>
     );
