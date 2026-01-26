@@ -152,6 +152,7 @@ a, button, input, textarea, select,
 .btn-primary {
     background: var(--primary);
     color: white;
+    margin-right: 2rem;
 }
 
 .btn-primary:hover:not(:disabled) {
