@@ -39,6 +39,13 @@ body {
     overflow-x: hidden;
 }
 
+/* Custom cursor FIX on element */
+*, *::before, *::after,
+a, button, input, textarea, select,
+[role="button"], [onclick] {
+    cursor: none !important;
+}
+
 /* LAYOUT GENERALE */
 .app {
     min-height: 100vh;
