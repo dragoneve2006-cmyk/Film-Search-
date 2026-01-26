@@ -60,20 +60,6 @@ export const Movies = () => {
                         </button>
                     )}
                 </form>
-
-                {!searchQuery && (
-                    <div className="tabs">
-                        <button
-                            className={`tab ${activeTab === 'popular' ? 'active' : ''}`}
-                            onClick={() => {
-                                setActiveTab('popular');
-                                setPage(1);
-                            }}
-                        >
-                            In Tendenza
-                        </button>
-                    </div>
-                )}
             </div>
 
             {isLoading && <Loader />}
