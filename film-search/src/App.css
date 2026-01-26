@@ -1176,3 +1176,37 @@ tbody tr:hover {
     border: 2px solid var(--danger);
     color: var(--danger);
 }
+
+/* 404 PAGE */
+.not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.not-found-content {
+    text-align: center;
+    padding: 3rem;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.not-found-title {
+    font-size: 8rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.not-found-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.not-found-content p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
