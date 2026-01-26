@@ -72,6 +72,7 @@ export const useMovieRating = (movieId: number) => {
                 return{success: false, message: response.status_message};
             }
         }catch (error){
+            console.error('Delete error:', error);
             const errorMessage = error instanceof Error ? error.message : 'Errore durante la rimozione della valutazione';
             setRatingMessage(`❌ ${errorMessage}`);
             return{success: false, message: errorMessage};

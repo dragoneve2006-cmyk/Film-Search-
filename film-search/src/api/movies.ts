@@ -99,7 +99,7 @@ rateMovie: async (movieId:number, rating: number, userId: string): Promise<Ratin
 
     try{
         //Salvattaggio nel local storage
-        const ratingsKey = userId ? `ratings_X${userId}`: 'ratings_guest';
+        const ratingsKey = userId ? `ratings_${userId}`: 'ratings_guest';
         const existingRatings = localStorage.getItem(ratingsKey);
         const ratings: Record<number, number> = existingRatings ? JSON.parse(existingRatings) : {};
 
