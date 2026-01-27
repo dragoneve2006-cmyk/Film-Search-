@@ -10,7 +10,7 @@ import {ErrorMessage} from '../components/ErrorMessage';
 export const Movies = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [page, setPage] = useState(1);
-    const [activeTab, setActiveTab] = useState<'popular' | 'trending'>('popular');
+    const [activeTab] = useState<'popular' | 'trending'>('popular');
 
     const {data, isLoading, error} = useQuery({
         queryKey: ['movies', activeTab, page, searchQuery],
@@ -62,11 +62,11 @@ export const Movies = () => {
                 </form>
             </div>
 
-            {isLoading && <Loader />}
-
-            {error && <ErrorMessage message="Errore nel caricamento dei film. Riprova più tardi." />}
-            
-            {data && (
+            {isLoading ? (
+                <Loader />
+            ) : error ? (
+                <ErrorMessage message="Errore nel caricamento dei film. Riprova più tardi." />
+            ) : data ? (
                 <>
                     <div className="movies-grid">
                         {data.results.map((movie) => (
@@ -102,7 +102,7 @@ export const Movies = () => {
                         </div>
                     )}
                 </>
-            )}
+            ) : null}
         </div>
     );
 };
