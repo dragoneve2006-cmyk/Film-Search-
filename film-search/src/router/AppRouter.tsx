@@ -15,11 +15,22 @@ import {ToWatch} from '../pages/ToWatch';
 import {Watched} from '../pages/Watched';
 import {Watchlist} from '../pages/Watchlist';
 import { AccountSettings } from '../pages/AccountSettings';
+import ClickSpark from '../components/ClickSpark';
 
 export const AppRouter = () => {
     const {isAuthenticated, user, isAdmin, logout} = useAuth();
 
     return(
+        <ClickSpark
+      sparkColor="#3b82f6"
+      sparkSize={15}
+      sparkRadius={30}
+      sparkCount={12}
+      duration={600}
+      easing="ease-out"
+      extraScale={1.2}
+    >
+        
         <BrowserRouter>
             <div className="app">
                 <nav className="navbar">
@@ -152,5 +163,6 @@ export const AppRouter = () => {
                 </footer>
             </div>
         </BrowserRouter>
+    </ClickSpark>
     );
 }
