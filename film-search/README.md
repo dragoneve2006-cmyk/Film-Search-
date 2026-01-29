@@ -216,4 +216,12 @@ Docente di riferimento P.Rocchio
 
 ---
 
+### Futuri Aggiornamenti
+
+1. Deploy tramite netlify
+2. Aggiunta di beckend per gestione reale dell'autenticazione
+3. Possibilità di aggiungere i film gia visti e da vedere direttamente dalla pagina del film con custom button dedicati
+
+---
+
 *Ultimo aggiornamento: 29 Gennaio 2026*
