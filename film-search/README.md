@@ -1,73 +1,118 @@
-# React + TypeScript + Vite
+# 🎬 Film Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 📋 Descrizione del Progett4o
+Cosè Film Search: film search nasce come idea personale per segnarsi i film visti, da vedere e quelli più belli;
+Da qui ho deciso di sviluppare questa "Single Page Application" sia come prova per le mie competenze, che come esame 
+ma soprattutto come strumento da uttilizzare.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+NB ⚠️ : QUESTO PROGETTO PERMETTE SOLO ED ESCLUSIVAMENTE LA RICERCA DI FILM (NO SERIE TV /NO SERIE NETFLIX)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎯 Scopo del progetto
 
-## Expanding the ESLint configuration
+Il progetto doveva permettermi di avere una pagina su cui visualizzare tutti i film di oggi giorno in constante aggiornamento,
+la possibilita di una watchlist personalizzata divisa in DA VEDERE - VISTI - PREFERIT, 
+e per puro personal learning la possibilità di una autenticazione, quindi registrazione o accesso base tutto in locale.
+Tutto questo sommato ad una Grafica CSS elaborata e un uttilizzo anche di componenti ReactBits per dettagli un po' più carini.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Installazione ed Esecuzione del progetto
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisiti minimi
+- Node.js (v18 o superiore)
+- npm o yarn (per mac)
+- API Key TMDB (in questo caso già inclusa nel progetto pk KEY pubblica)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Installazione
+1. Clona la repository
+2. Entra nella cartella del progetto
+    - cd film-search
+3. Installa dipendenze neccessarie
+    - npm install
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Esecuzione
+1. Da terminale
+    - npm run dev
+Una volta eseguito questo comando l'applicazione sarà disponibile su:
+`http://localhost:5173`
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🔑 API Uttilizzata
+
+### TMDB - The Movie Database
+
+- **URL**: https://www.themoviedb.org/
+- **Documentazione**: https://developer.themoviedb.org/docs
+- **Versione API**: v3
+
+#### API Key inclusa nel progetto:
+// src/api/movies.ts
+const API_KEY = '4e44d9029b1270a757cddc766a1bcb63'
+
+## Endpoint uttilizzati:
+|       Endpoint        |   Metodo     |       Descrizione         |
+|-----------------------|--------------|---------------------------|
+| `/search/movie`       |    GET       | Ricerca film per titolo   |
+| `/movie/popular`      |    GET       | Film popolari             |
+| `/trending/movie/week`|    GET       | Film in tendenza          |
+| `/movie/{id}`         |    GET       | Dettagli film specifico   |
+| `/movie/{id}/credits` |    GET       | Cast e crew del film      |
+| `/genre/movie/list`   |    GET       | Lista generi disponibili  |
+| `/discover/movie`     |    GET       | Scopri film per genere    |
+| `/movie/{id}/rating`  |    POST      | Valuta un film            |
+| `/movie/{id}/rating`  |    DELETE    | Rimuovi valutazione       |
+
+---
+
+## 📂 Struttura del Progetto
+
+film-search/
+├── public/                         # Asset pubblici
+├── src/
+│   ├── api/                        # Gestione chiamate API
+│   │   └── movies.ts               # Funzioni API TMDB
+│   ├── components/                 # Componenti riutilizzabili
+│   │   ├── ClickSpark.tsx          # Effetto click animato
+│   │   ├── CustomCursor.tsx        # Cursore personalizzato
+│   │   ├── ErrorMessage.tsx        # Messaggio errore
+│   │   ├── FuzzyText.tsx           # Effetto testo animato
+│   │   ├── Loader.tsx              # Componente loading
+│   │   ├── MovieCard.tsx           # Card film
+│   │   ├── MovieRating.tsx         # Componente valutazione
+│   │   ├── Navbar.tsx              # Barra navigazione
+│   │   └── ProtectedRoute.tsx      # Route protette
+│   ├── hooks/                      # Custom hooks
+│   │   ├── useAuth.ts              # Hook autenticazione
+│   │   └── useMovieRating.ts       # Hook gestione rating
+│   ├── pages/                      # Pagine dell'applicazione
+│   │   ├── Home.tsx                # Homepage
+│   │   ├── Movies.tsx              # Lista film con ricerca
+│   │   ├── MovieDetail.tsx         # Dettaglio singolo film
+│   │   ├── Watchlist.tsx           # Gestione watchlist
+│   │   ├── Favorites.tsx           # Film preferiti
+│   │   ├── ToWatch.tsx             # Film da vedere
+│   │   ├── Watched.tsx             # Film già visti
+│   │   ├── Login.tsx               # Login utente
+│   │   ├── Register.tsx            # Registrazione
+│   │   ├── AccountSettings.tsx     # Impostazioni account
+│   │   ├── AdminPanel.tsx          # Pannello admin
+│   │   └── NotFound.tsx            # Pagina 404
+│   ├── router/                     # Configurazione routing
+│   │   └── AppRouter.tsx           # Router principale
+│   ├── types/                      # Definizioni TypeScript
+│   │   ├── auth.ts                 # Tipi autenticazione
+│   │   └── movie.ts                # Tipi film
+│   ├── utils/                      # Utility functions
+│   │   └── authdb.ts               # Mock database utenti
+│   ├── App.tsx                     # Componente root
+│   ├── App.css                     # Stili globali
+│   └── main.tsx                    # Entry point
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
