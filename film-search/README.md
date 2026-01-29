@@ -159,5 +159,35 @@ password : admin123
 - CSS - Styling custom con variabili
 - Responsive design - Mobile primo approcio
 
+---
 
+## 🎨 Caratteristiche UI / UX
+
+### Design System
+- Colore del pattern generale: Dark su base blu
+- Animation: Transizioni smoot con delay di 0.3s
+
+### Componenti Interattivi
+- Custom Cursor: puntatore personalizzato su tutto il sito
+- Click Spark: particelle animate al ogni click
+- FuzzyText: effetto glitch per pagina 404
+- MovieCard: card hover per ogni film
+- MovieRating: sistema interattivo di valutazione
+
+---
+
+## 🧪 Testing
+
+### Test Manuale Eseguito
+- [x] Ricerca film
+- [x] Navigazione web
+- [x] Login/Logout
+- [x] Aggiunta/rimozione da watchlist
+- [x] Rating film
+- [x] Responsive design
+- [x] Gestione errori API
+- [x] Pagina 404
+- [x] Route protette
+
+---
 
