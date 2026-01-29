@@ -128,7 +128,7 @@ export const MovieCard = ({movie, showWatchlistActions = false, currentList}: Mo
                                 </button>
                                 <button
                                 className="watchlist-action-btn watched-btn"
-                                onClick={(e) => handleWatchlistAction(e, 'addToWatched?')}
+                                onClick={(e) => handleWatchlistAction(e, 'addToWatched')}
                                 aria-label="Segna come visto"
                                 title="Segna come visto"
                                 >   

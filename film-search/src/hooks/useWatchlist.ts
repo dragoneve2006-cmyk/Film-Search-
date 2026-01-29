@@ -64,6 +64,11 @@ export const useWatchlist = create<WatchlistStore>()((set, get) => {
                 return;
 
             set((state) => {
+                // Controllo se il film è già nella lista "Da vedere"
+                if (state.toWatch.some((m) => m.id === movie.id)) {
+                    return state; // Non faccio nulla se già presente
+                }
+                
                 const newWatched = state.watched.filter(m => m.id !== movie.id);
                 const newToWatch = [...state.toWatch, movie];
                 saveListToStorage(currentUserId, 'toWatch', newToWatch);
@@ -95,6 +100,11 @@ export const useWatchlist = create<WatchlistStore>()((set, get) => {
                 return;
 
             set((state) => {
+                // Controllo se il film è già nella lista "Già visto"
+                if (state.watched.some((m) => m.id === movie.id)) {
+                    return state; // Non faccio nulla se già presente
+                }
+                
                 const newToWatch = state.toWatch.filter(m => m.id !== movie.id);
                 const newWatched = [...state.watched, movie];
                 saveListToStorage(currentUserId, 'toWatch', newToWatch);
