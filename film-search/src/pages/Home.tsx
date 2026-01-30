@@ -13,7 +13,7 @@ export const Home = () => {
                     🎬 Film Search{isAuthenticated ? ` - Ciao ${user?.username}` : ''}
                 </h1>
                 <p className="hero-subtitle">
-                    Oltre 1ML di film a portata di click. Cerca, scopri e organizza la tua watchlist personale!
+                    Oltre 1M di film a portata di click. Cerca, scopri e organizza la tua watchlist personale!
                 </p>
                 <div className="hero-actions">
                     {isAuthenticated ? (
@@ -42,7 +42,7 @@ export const Home = () => {
                 <div className="feature-card">
                     <div className="feature-icon">🔍</div>
                     <h3>Cerca Film</h3>
-                    <p>Cerca tra più di 50k film usando l'API di TMDB</p>
+                    <p>Cerca tra più di 1M film usando l'API di TMDB</p>
                 </div>
                 <div className="feature-card">
                     <div className="feature-icon">⭐</div>
