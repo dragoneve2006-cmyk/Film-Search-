@@ -1232,7 +1232,8 @@ tbody tr:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 60vh;
+    min-height: 65vh;
+    margin-top: 1rem;
 }
 
 .not-found-content {
